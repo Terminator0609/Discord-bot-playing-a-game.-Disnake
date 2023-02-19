@@ -1,0 +1,13 @@
+import disnake
+from disnake.ext import commands
+
+prefix = 'PREFIX' #Command prefix
+client = commands.Bot(command_prefix='!', intents=disnake.Intents().all())
+
+client.event()
+async def on_ready():
+    print("MESSAGE") #Print this message when the bot is ready (run)
+    await client.change_presence(status=disnake.Status.online,
+                            activity=disnake.Game('GAME')) #Shows that the bot is playing this game
+    
+client.run('BOT_TOKEN')
